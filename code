@@ -1,0 +1,16 @@
+#define LIGHT_PIN A0 // Replace A0 with your pin 
+
+void setup() {
+ 
+} 
+void loop() { 
+   // value increases as brightness increases 
+   int darkness = analogRead(LIGHT_PIN); 
+   
+  if (darkness >= 70) { 
+      Particle.publish("light-level-changed", "bright"); 
+  } else { 
+      Particle.publish("light-level-changed", "dark"); 
+  } 
+  delay(1000);
+} 
